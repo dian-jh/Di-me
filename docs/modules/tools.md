@@ -19,6 +19,8 @@ OS 沙盒，调用能力取决于 Di 进程身份。
 `ScriptBlock.Create` 在当前会话作用域执行；引号或括号不完整时立即返回语法错误，
 不会把后续完成标记吞进未结束的输入。每次调用重置 `LASTEXITCODE`，避免上次错误污染
 下一条成功命令的退出码；变量、目录和环境仍跨调用保留。
+`ShellSession.initialize_` 将 PowerShell 的 `[Console]::OutputEncoding` 显式设为无 BOM UTF-8，
+避免 Windows 默认代码页不能表示中文时将输出替换为 `?`；Base64 命令传输不受代码页影响。
 `writeStdin` 和输出队列读取均接收生命周期取消信号，超时或取消也能打断 stdin 背压等待。
 回归测试见 `packages/coding-agent/test/tools/powershell-session-regression.test.ts`。
 

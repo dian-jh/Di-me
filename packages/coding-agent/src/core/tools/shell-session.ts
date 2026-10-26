@@ -402,9 +402,11 @@ export class ShellSession {
       if (this.shell.sessionKind === "powershell") {
         // Suppress PS 5.1's CLIXML progress stream on redirected stdout and zero
         // $LASTEXITCODE (unset is empty, which would break the marker line parse).
-        // Deliberately do NOT touch [Console]::OutputEncoding — changing it makes
-        // stdin read as OEM and garbles Chinese commands (comment).
-        await writeStdin(process.stdin, "$ProgressPreference='SilentlyContinue'; $global:LASTEXITCODE=0;\n", lifecycle.signal);
+        // Windows PowerShell otherwise replaces Unicode output with '?' on
+        // runners whose default console code page cannot represent it. Command
+        // transport is ASCII (UTF-8/Base64), so changing the console encoding
+        // cannot corrupt the incoming script text.
+        await writeStdin(process.stdin, "[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false); $ProgressPreference='SilentlyContinue'; $global:LASTEXITCODE=0;\n", lifecycle.signal);
       }
       await writeStdin(process.stdin, `echo ${ready}\n`, lifecycle.signal);
 

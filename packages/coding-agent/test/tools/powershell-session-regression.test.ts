@@ -2,6 +2,26 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { ShellSession, powershellSessionShell } from "@di/coding-agent";
 
+test("PowerShell preserves Unicode output when the initial console encoding is ASCII", { skip: process.platform !== "win32", timeout: 15000 }, async () => {
+  const session = new ShellSession(process.cwd(), {
+    ...powershellSessionShell,
+    // Use a pipe-driven host loop so the test controls the initial encoding
+    // without the interactive host resetting it between prompts.
+    prefixArgs: ["-NoLogo", "-NoProfile", "-NonInteractive", "-Command",
+      "[Console]::OutputEncoding = [Text.Encoding]::ASCII; while ($null -ne ($line = [Console]::ReadLine())) { Invoke-Expression $line | Out-Default }"],
+  });
+  try {
+    for (const text of ["你好世界", "再次输出 café 😀"]) {
+      const result = await session.execute(`Write-Output '${text}'`, 3000);
+      assert.equal(result.error, null, result.toObservation());
+      assert.equal(result.exitCode, 0, result.toObservation());
+      assert.ok(result.output.includes(text), result.toObservation());
+    }
+  } finally {
+    session.dispose();
+  }
+});
+
 test("PowerShell completes the date command from the stalled session", { skip: process.platform !== "win32", timeout: 12000 }, async () => {
   const session = new ShellSession(process.cwd(), powershellSessionShell);
   try {
