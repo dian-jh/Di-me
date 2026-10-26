@@ -7,6 +7,10 @@
 没有 C# 源码、项目文件或 .NET 构建链路。原 `docs/migration/typescript-core/` 迁移计划与台账
 已在 `9442588` 删除。本页仍保留，因为发布验收尚未全部完成，不代表运行时仍依赖旧实现。
 
+旧 C# 实现保留在 `feature/loop` 分支，包括 `Common/`、`Core/`、`Di.Cli/`、
+`Di.Cli.Tests/`、`Di.Tests/` 和 `Di.slnx`。切换分支后，本地可能残留被 Git 忽略的
+`bin/`、`obj/`、`TestResults/` 及空目录；这些构建产物不属于 TypeScript 实现，可以清理。
+
 当前候选 `3acfe4faef286e187fc5cd156024beeba6d2d603` 的
 [GitHub Actions](https://github.com/dian-jh/Di/actions/runs/39978630488) 六个组合全部通过，
 涵盖 build、typecheck、unit 和 compat；该 CI 不包含真实模型 smoke 或 10 小时 soak。
