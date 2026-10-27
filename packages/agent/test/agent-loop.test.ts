@@ -741,7 +741,7 @@ test("usage accumulates across the tool round-trip model calls", async () => {
 
 // ---------------------------------------------------------------------------
 // P2.3 context-budget guard and iteration boundaries
-// (see `docs/modules/agent-loop.md` for turn ordering and stop reasons)
+// (see `.agents/docs/modules/agent-loop.md` for turn ordering and stop reasons)
 // ---------------------------------------------------------------------------
 
 test("budget-pause fixture: an estimate over the budget pauses with context_limit before any model call", async () => {
@@ -1268,7 +1268,7 @@ test("an AbortError thrown by a tool propagates as a rejection, never an isError
 
 // ---------------------------------------------------------------------------
 // P2.5 observer vs checkpoint error isolation
-// (see `docs/modules/events.md`: observer failures are
+// (see `.agents/docs/modules/events.md`: observer failures are
 // caught, ordered through onObserverError, and never stall the loop, block an
 // authorized tool, or turn a success into a failure; checkpoint failures stay
 // fail-closed — the error aborts the loop unchanged. Event delivery is

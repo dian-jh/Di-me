@@ -15,5 +15,5 @@
 | DeepSeek | [`deepseek.md`](deepseek.md) | `packages/ai/src/providers/deepseek/` | DeepSeek Chat 适配器 |
 | ChatGPT | [`chatgpt.md`](chatgpt.md) | `packages/ai/src/providers/chatgpt/`; `packages/coding-agent/src/core/auth/` | Responses API 与 OAuth |
 
-配置与 `~/.di` 规范见 [`docs/di-home.md`](../di-home.md)，跨包依赖见
-[`docs/architecture.md`](../architecture.md)。
+配置与 `~/.di` 规范见 [`.agents/docs/di-home.md`](../di-home.md)，跨包依赖见
+[`.agents/docs/architecture.md`](../architecture.md)。

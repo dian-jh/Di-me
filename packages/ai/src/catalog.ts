@@ -2,7 +2,7 @@ import type { ModelCostRates } from "./usage.ts";
 
 /*
  * Data-driven catalog of available models and their advisory metadata.
- * See docs/modules/llm.md for the model and token accounting contract. Adding a
+ * See .agents/docs/modules/llm.md for the model and token accounting contract. Adding a
  * model is a data change, never engine code.
  *
  * The catalog is advisory: a model id not listed is still accepted by an adapter,

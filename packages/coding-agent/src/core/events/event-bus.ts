@@ -12,7 +12,7 @@ import { isAgentEvent, type LogEvent } from "./log-events.ts";
  * - pull consumers ({@link subscribe}) receive the @di/agent loop event set ONLY
  * (type-capped upward dispatch: `runStarted` / `modelCallStarted` are
  * log-only lifecycle events and must never reach the RPC/TUI full-switch
- * consumers — see `docs/modules/logging.md` "关键约束");
+ * consumers — see `.agents/docs/modules/logging.md` "关键约束");
  * - push handlers ({@link subscribeWith}) receive EVERY published event
  * (`IEventBus.Subscribe<TEvent>`), which is how `DiLog` observes the
  * turn lifecycle as a bypass side channel.

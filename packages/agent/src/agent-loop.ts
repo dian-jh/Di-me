@@ -214,7 +214,7 @@ export async function runAgentLoop(
 // Request well-formedness
 // ---------------------------------------------------------------------------
 
-/** Rejects malformed requests; see `docs/modules/agent-loop.md`. */
+/** Rejects malformed requests; see `.agents/docs/modules/agent-loop.md`. */
 function validateRequest(request: AgentRequest, dependencies: AgentDependencies): void {
   if (request == null || dependencies == null) {
     throw new TypeError("runAgentLoop: request and dependencies are required");
@@ -305,7 +305,7 @@ function buildModelRequest(request: AgentRequest, trajectory: readonly AgentMess
 
 /**
  * Await the observer sink to preserve event order. The sink is an observation
- * side channel, never the control plane (see `docs/modules/events.md`):
+ * side channel, never the control plane (see `.agents/docs/modules/events.md`):
  * 旁路，不是控制面";  is fire-and-forget and the event bus
  * isolates subscriber exceptions). A throwing/rejecting listener is caught and
  * handed — in order — to the `onObserverError` diagnostic callback; if that
@@ -414,7 +414,7 @@ async function stopInterrupted(
  * otherwise an estimate strictly greater than the budget pauses (an estimate
  * exactly equal to the budget proceeds). A missing budget disables the guard.
  * The estimate is an approximate heuristic — never the provider's exact token
- * count (see `docs/modules/context-management.md`).
+ * count (see `.agents/docs/modules/context-management.md`).
  */
 function shouldPauseForContextLimit(
   modelRequest: ModelRequest,
@@ -427,7 +427,7 @@ function shouldPauseForContextLimit(
 }
 
 /**
- * Explicit pause (see `docs/modules/context-management.md`): return the full
+ * Explicit pause (see `.agents/docs/modules/context-management.md`): return the full
  * trajectory and already-accumulated usage, never auto-trim or summarize. The
  * answer is the last current-turn assistant text after the user (past the history
  * prefix), mirroring  — an old history assistant answer is

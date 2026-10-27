@@ -12,7 +12,7 @@ function isReasoningBlock(block: ContentBlock): block is ReasoningBlock {
  *: a rough ~4 characters/token estimate over each
  * message's visible text (plus assistant reasoning). This feeds the budget
  * tracker and history trimming — it is an approximate heuristic, never a provider
- * tokenizer's exact count (see `docs/modules/context-management.md`).
+ * tokenizer's exact count (see `.agents/docs/modules/context-management.md`).
  */
 
 /** Rough token estimate for one text (`TokenEstimator.Estimate`): ceil(len / 4). */

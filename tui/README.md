@@ -2,7 +2,7 @@
 
 生产 CLI 通过本地 `RunnerPort` adapter 调用 `runInteractive`。独立启动本包时，通过子进程
 与 TypeScript 后端的 `--mode rpc` 交换 NDJSON。协议见
-[`docs/tui-rpc.md`](../docs/tui-rpc.md)，组件与端口边界见 [`docs/tui.md`](../docs/tui.md)。
+[`.agents/docs/tui-rpc.md`](../.agents/docs/tui-rpc.md)，组件与端口边界见 [`.agents/docs/tui.md`](../.agents/docs/tui.md)。
 
 ## 环境要求
 
@@ -56,7 +56,7 @@ src/
 │   ├── port.ts       # 同进程与 RPC runner 共用的接口
 │   └── rpc-port.ts   # RpcClient 到 RunnerPort 的适配
 ├── rpc/
-│   ├── protocol.ts   # 协议类型定义（与 docs/tui-rpc.md 逐字段对应）
+│   ├── protocol.ts   # 协议类型定义（与 .agents/docs/tui-rpc.md 逐字段对应）
 │   ├── codec.ts      # NDJSON 编解码：行帧、parse+validate、FIFO 队列、编码
 │   └── client.ts     # 子进程管理：spawn、ready 握手、请求方法、事件订阅、退出清理
 └── app/
@@ -73,4 +73,4 @@ src/
 test/                 # node --test 单元 / 集成测试（不依赖终端）
 ```
 
-验证事实及尚未完成的发布门槛见 [`docs/typescript-validation.md`](../docs/typescript-validation.md)。
+验证事实及尚未完成的发布门槛见 [`.agents/docs/typescript-validation.md`](../.agents/docs/typescript-validation.md)。

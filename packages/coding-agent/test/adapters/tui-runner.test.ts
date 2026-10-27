@@ -40,7 +40,7 @@ import {
  * payload shapes (ready fields model/effort?/skills/models, snake_case,
  * null-keys-omitted, text/reasoning/tool_call deltas, tool lifecycle,
  * turn_completed/run_failed, result, cancelled/interrupted, list/run commands)
- * as the child-process `--mode rpc` path (docs/tui-rpc.md / tui protocol.ts
+ * as the child-process `--mode rpc` path (.agents/docs/tui-rpc.md / tui protocol.ts
  *
  * fake suite mirrors test/modes/rpc-mode.test.ts, the real-host suite mirrors
  * test/cli/real-host-rpc.test.ts — same scenarios, same byte-level expectations

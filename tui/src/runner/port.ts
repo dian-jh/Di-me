@@ -48,7 +48,7 @@ export interface RunnerPortHandlers {
   onMalformed?(line: string, error: Error): void;
 }
 
-/** `command run` 的统一应答（docs/tui-rpc.md §2.5 command_ran 形状）。 */
+/** `command run` 的统一应答（.agents/docs/tui-rpc.md §2.5 command_ran 形状）。 */
 export interface RunnerCommandResult {
   readonly lines: string[];
   readonly exit: boolean;

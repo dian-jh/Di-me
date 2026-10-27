@@ -7,7 +7,7 @@
     "tests": [
       "packages/coding-agent/test/session-agent-recovery.test.ts"
     ],
-    "docs": "docs/modules/sessions.md"
+    "docs": ".agents/docs/modules/sessions.md"
   },
   "input": {
     "sessionId": "recovery-unknown-tool-outcome",

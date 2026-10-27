@@ -10,4 +10,4 @@ TUI/RPC wire 形状。`log-events.ts` 定义日志生命周期事件；`model-ca
 
 关键入口：`packages/agent/src/types.ts`（`AgentEvent`）、
 `packages/coding-agent/src/core/events/event-bus.ts`（`EventBus`、`EventConsumer`）。RPC 字段见
-[`docs/tui-rpc.md`](../tui-rpc.md)。
+[`.agents/docs/tui-rpc.md`](../tui-rpc.md)。

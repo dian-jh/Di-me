@@ -24,7 +24,7 @@ import type {
 } from "./protocol.ts";
 import { makeRequest } from "./protocol.ts";
 
-/** `command` 请求的统一应答：list / run / error 三种（docs/tui-rpc.md §2.5）。 */
+/** `command` 请求的统一应答：list / run / error 三种（.agents/docs/tui-rpc.md §2.5）。 */
 export type CommandOutcome =
   | { kind: "listed"; commands: CommandDescriptor[] }
   | { kind: "ran"; name: string; lines: string[]; exit: boolean; model?: string; effort?: string | null; models?: ModelInfo[] }
@@ -189,7 +189,7 @@ export class RpcClient {
 
   /**
    * 运行一回合。返回的 promise 在对应 `result` 到达时 resolve。
-   * 协议无 result↔request 关联（docs/tui-rpc.md §1 请求串行、§2.3 result 归属当前回合），
+   * 协议无 result↔request 关联（.agents/docs/tui-rpc.md §1 请求串行、§2.3 result 归属当前回合），
    * 故回合进行中（busy）拒绝新 prompt，而不是覆盖在途回合——保证每个回合终态恰好一次、不被串台。
    */
   prompt(message: string): Promise<AgentResult> {

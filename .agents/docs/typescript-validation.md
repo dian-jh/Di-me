@@ -4,7 +4,7 @@
 `package.json`；跨平台工作流位于 `.github/workflows/typescript-core.yml`。
 
 截至 2026-10-24，产品代码、默认 CLI、安装器及 CI 已切换到 TypeScript；受 Git 跟踪的文件中
-没有 C# 源码、项目文件或 .NET 构建链路。原 `docs/migration/typescript-core/` 迁移计划与台账
+没有 C# 源码、项目文件或 .NET 构建链路。原 `.agents/docs/migration/typescript-core/` 迁移计划与台账
 已在 `9442588` 删除。本页仍保留，因为发布验收尚未全部完成，不代表运行时仍依赖旧实现。
 
 旧 C# 实现保留在 `feature/loop` 分支，包括 `Common/`、`Core/`、`Di.Cli/`、
@@ -92,6 +92,6 @@ compat 为 32 pass / 1 macOS skip。真实一分钟回归完成 153 轮、51 次
   release SHA 并从干净工作区运行。三平台最终候选 10 小时 soak、macOS CFNetwork 自动代理解析和
   真实 PAC/WPAD 网络验收尚未完成；Windows 发布与 macOS 自动代理能力应分别说明支持边界。
 
-冻结阈值及固定候选失败数值保存在 [`docs/soak-thresholds.json`](soak-thresholds.json)。
+冻结阈值及固定候选失败数值保存在 [`.agents/docs/soak-thresholds.json`](soak-thresholds.json)。
 以上时间点和摘要来自既有运行记录；运行产物位于仓库外的 `%TEMP%`，本页不声称其文件仍可访问。
 重新发布前应基于实际候选重新执行对应门槛，并保留原始日志和冻结阈值。

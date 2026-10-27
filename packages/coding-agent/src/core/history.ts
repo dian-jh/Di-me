@@ -8,7 +8,7 @@ function isToolCallBlock(block: ContentBlock): block is ToolCall {
 /*
  * Pure helpers for cross-turn history trimming and sanitization.
  * All operate on the persisted memory only — the loop's result trajectory is
- * never rewritten by these functions (see `docs/modules/sessions.md`).
+ * never rewritten by these functions (see `.agents/docs/modules/sessions.md`).
  */
 
 /** Count user messages (whole-turn boundaries) in a history. */

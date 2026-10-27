@@ -7,7 +7,7 @@
     "tests": [
       "packages/agent/test/agent-loop.test.ts"
     ],
-    "docs": "docs/modules/agent-loop.md; docs/modules/context-management.md"
+    "docs": ".agents/docs/modules/agent-loop.md; .agents/docs/modules/context-management.md"
   },
   "input": {
     "sessionId": "budget-pause",

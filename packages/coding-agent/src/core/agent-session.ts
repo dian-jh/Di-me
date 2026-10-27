@@ -33,7 +33,7 @@ import { SessionDataError } from "./sessions/errors.ts";
 
 /*
  * AgentSession — the Node host that owns cross-turn state (see
- * `docs/modules/sessions.md`): durable in-memory history, the current model, active
+ * `.agents/docs/modules/sessions.md`): durable in-memory history, the current model, active
  * skills, the budget tracker, checkpoint/recovery and the soft-stop controller
  * live ONLY here. `runAgentLoop` (@di/agent) stays a pure loop that never
  * persists next-turn history.
@@ -274,7 +274,7 @@ export class AgentSession {
 
   /**
    * Clear all cross-turn memory. Only allowed when no turn is running — the
-   * in-use array is never cleared concurrently (see `docs/interrupt.md`). The
+   * in-use array is never cleared concurrently (see `.agents/docs/interrupt.md`). The
    * snapshot marker and
    * budget tracker holder are reset too so the snapshot is re-injected next turn).
    */

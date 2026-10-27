@@ -7,7 +7,7 @@
     "tests": [
       "packages/agent/test/agent-loop.test.ts"
     ],
-    "docs": "docs/modules/agent-loop.md; docs/interrupt.md"
+    "docs": ".agents/docs/modules/agent-loop.md; .agents/docs/interrupt.md"
   },
   "input": {
     "sessionId": "hard-cancel",

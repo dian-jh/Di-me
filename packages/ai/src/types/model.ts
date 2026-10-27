@@ -71,7 +71,7 @@ export interface ModelRequest {
   /*
  * Business session id used to derive a stable provider prompt-cache key
  * (`GenerateOptions.SessionId` → `prompt_cache_key`). Advisory: the key is a
- * cache-affinity hint, never a hit guarantee (docs/modules/chatgpt.md).
+ * cache-affinity hint, never a hit guarantee (.agents/docs/modules/chatgpt.md).
  */
   readonly sessionId?: string;
 }

@@ -59,6 +59,6 @@ stdout 写一行 JSON：成功包含 `answer`、`stop_reason`、`iterations`、`
 `packages/coding-agent/src/core/sessions/session-recovery.ts`（`loadRecovery`）。checkpoint 中
 工具调用结果不确定时恢复会失败关闭，以免重复执行可能已产生副作用的工具。
 
-模式线协议见 [`docs/tui-rpc.md`](tui-rpc.md)；配置文件位置和优先级见
-[`docs/di-home.md`](di-home.md)。发布验证状态见
-[`docs/typescript-validation.md`](typescript-validation.md)。
+模式线协议见 [`.agents/docs/tui-rpc.md`](tui-rpc.md)；配置文件位置和优先级见
+[`.agents/docs/di-home.md`](di-home.md)。发布验证状态见
+[`.agents/docs/typescript-validation.md`](typescript-validation.md)。

@@ -397,7 +397,7 @@ test("Rpc_NoSession_SkipsWritingLog", async () => {
   }
 });
 
-// ---- 命令系统（docs/tui-rpc.md §3 command 方法） ----
+// ---- 命令系统（.agents/docs/tui-rpc.md §3 command 方法） ----
 
 test("Rpc_Command_List_EmitsCommandListed", async () => {
   const { code, stdout } = await runRpc(
@@ -483,7 +483,7 @@ test("Rpc_Command_TurnCommand_EmitsTurnNotSupported", async () => {
   const doc = JSON.parse(outputLines(stdout.text())[1]!);
   assert.equal(doc.type, "command_error");
   assert.equal(doc.code, "turn_not_supported");
-  // turn_message 携带指令+参数全文，TUI 据此改用自身 prompt 机制跑回合（docs/tui-rpc.md §2.5）。
+  // turn_message 携带指令+参数全文，TUI 据此改用自身 prompt 机制跑回合（.agents/docs/tui-rpc.md §2.5）。
   assert.ok(doc.turn_message.includes("【Skill：backend-tests】"));
   assert.ok(doc.turn_message.includes("补测试"));
 });

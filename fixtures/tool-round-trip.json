@@ -7,7 +7,7 @@
     "tests": [
       "packages/agent/test/fixtures.test.ts"
     ],
-    "docs": "docs/modules/agent-loop.md"
+    "docs": ".agents/docs/modules/agent-loop.md"
   },
   "input": {
     "sessionId": "tool-round-trip",

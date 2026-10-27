@@ -7,7 +7,7 @@ import type { LogEvent } from "../events/log-events.ts";
 
 /*
  * Per-day lifecycle log (, jcode format
- * per docs/modules/logging.md): one `di-YYYY-MM-DD.log` per day (LOCAL-time
+ * per .agents/docs/modules/logging.md): one `di-YYYY-MM-DD.log` per day (LOCAL-time
  * naming, daily rotation) under `RootDirectory/logs/`; one event per line for
  * the turn lifecycle (run / llm / tool lines); long fields folded + truncated
  * (never wrap, readable summary); verbatim streams (raw model output / full

@@ -14,7 +14,7 @@ import { CHATGPT_DIRECT_SCOPE } from "./constants.ts";
  * exclusive lock → re-read the latest credentials INSIDE the lock → apply the
  * change (refresh / login / logout) → validate → atomic replace. The lock covers
  * read, network refresh and commit, so two processes can never consume a
- * one-time refresh token (see `docs/modules/chatgpt.md`).
+ * one-time refresh token (see `.agents/docs/modules/chatgpt.md`).
  *
  * Atomic replace: a unique temp file in the same directory → write → `fh.sync` →
  * close → `rename` overwrite. On failure the old file is preserved and the orphan

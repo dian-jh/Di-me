@@ -12,7 +12,7 @@
  *
  * Everything else is matched literally: regex metacharacters are escaped. Case
  * folding for Windows uses plain JS `i` (Unicode case folding, not
- * locale-sensitive (see `docs/modules/tools.md`).
+ * locale-sensitive (see `.agents/docs/modules/tools.md`).
  */
 
 /** Translate a glob pattern into an anchored RegExp for matching relative paths. */

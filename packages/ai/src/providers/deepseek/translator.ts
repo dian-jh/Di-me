@@ -24,7 +24,7 @@ import type {
 /*
  * DeepSeek ↔ unified vocabulary translation.
  * All DeepSeek-specific quirks live here — the business and the host never see
- * the wire format (docs/modules/deepseek.md).
+ * the wire format (.agents/docs/modules/deepseek.md).
  *
  * Request side: {@link toWireRequest} maps the internal AgentMessage/ToolSpec
  * history onto the wire DTO; {@link serializeRequest} emits byte-stable JSON in

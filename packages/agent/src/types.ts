@@ -91,7 +91,7 @@ export interface LoopCheckpoint {
   toolCompleted(result: ToolResultMessage): void | Promise<void>;
 }
 
-/** Everything the loop needs injected; see `docs/modules/agent-loop.md`. */
+/** Everything the loop needs injected; see `.agents/docs/modules/agent-loop.md`. */
 export interface AgentDependencies {
   model: ChatModel;
   toolExecutor: ToolExecutor;

@@ -33,7 +33,7 @@ import type { TuiLauncherContext } from "../modes/tui-launcher.ts";
  * dispatched from here: REPL / TUI (interactive), single JSON doc (json), text
  * single shot (print), NDJSON (rpc).
  *
- * Output contract (see `docs/cli.md`): data → stdout, diagnostics/errors →
+ * Output contract (see `.agents/docs/cli.md`): data → stdout, diagnostics/errors →
  * stderr, exit code 0 = success / 1 = usage or runtime error, ANSI only when
  * `stdoutTty && !noAnsi`. Internal camelCase never leaks to the wire: the
  * JSON/RPC wire shapes are produced by the mode bodies.

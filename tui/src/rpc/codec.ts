@@ -3,7 +3,7 @@
  *
  * 本模块不做任何 I/O，可独立单元测试。
  *
- * 帧格式（docs/tui-rpc.md §1）：stdin/stdout 均为 UTF-8 文本流，每行一个 JSON 对象，
+ * 帧格式（.agents/docs/tui-rpc.md §1）：stdin/stdout 均为 UTF-8 文本流，每行一个 JSON 对象，
  * 以 `\n` 结尾。为兼容 Windows 工具链，解析时容忍行尾 `\r\n`。
  */
 

@@ -11,7 +11,7 @@ import { parseJsonObject } from "./jsonc.ts";
  * This makes the nested-object merge deep by construction — not a shallow spread.
  *
  * Ownership: only reads files, never creates or overwrites them
- * (docs/di-home.md §4: config files are user-owned, program read-only).
+ * (.agents/docs/di-home.md §4: config files are user-owned, program read-only).
  */
 
 /** A single effective config value after merging (JSON value types preserved). */

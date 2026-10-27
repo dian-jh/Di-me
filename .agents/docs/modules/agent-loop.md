@@ -12,4 +12,4 @@
 
 关键符号：`runAgentLoop`、`LoopError`（`packages/agent/src/agent-loop.ts`）；`AgentRequest`、
 `AgentDependencies`、`AgentEvent`、`AgentResult`（`packages/agent/src/types.ts`）。会话数据流见
-[`docs/architecture.md`](../architecture.md)。
+[`.agents/docs/architecture.md`](../architecture.md)。

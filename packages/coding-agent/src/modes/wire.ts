@@ -9,12 +9,12 @@ import type {
 import { usageCostTotal } from "./event-renderer.ts";
 
 /*
- * Core AgentLoop 事件/结果 → TUI wire 载荷的共享转换（docs/tui-rpc.md 为权威，
+ * Core AgentLoop 事件/结果 → TUI wire 载荷的共享转换（.agents/docs/tui-rpc.md 为权威，
  * `tui/src/rpc/protocol.ts` 为形状）。RPC 模式（--mode rpc 子进程路径）与
  * LocalAgentRunnerAdapter（同进程 TUI 路径）共用同一转换函数，保证两种后端
  * 的 wire 载荷字节级等价（字段值、顺序一致）。
  *
- * 约定（对齐 rpc-mode 原实现，docs/tui-rpc.md）：snake_case、null 键省略、
+ * 约定（对齐 rpc-mode 原实现，.agents/docs/tui-rpc.md）：snake_case、null 键省略、
  * `interrupted` 事件 kind 不发出（TUI codec 拒绝该 kind，软停经
  * result.stop_reason "interrupted" 上报）、interrupt 合成 `cancelled`。
  */
@@ -107,7 +107,7 @@ export function eventPayload(event: AgentEvent): RpcAgentEvent | undefined {
     case "runFailed":
       return { kind: "run_failed", failure: failurePayload(event.failure) };
     case "interrupted":
-      // docs/tui-rpc.md 列出该 kind，但 TUI codec（tui/src/rpc/codec.ts）不接受它——
+      // .agents/docs/tui-rpc.md 列出该 kind，但 TUI codec（tui/src/rpc/codec.ts）不接受它——
       // 发出即 malformed。软停仍经 result.stop_reason "interrupted" 上报（与 分歧）。
       return undefined;
   }

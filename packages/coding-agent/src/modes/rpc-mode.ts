@@ -21,7 +21,7 @@ import {
 
 /*
  * RPC mode (--mode rpc): an NDJSON over stdin/stdout session driver
- * (docs/tui-rpc.md is the wire-protocol authority; the TS TUI consumer
+ * (.agents/docs/tui-rpc.md is the wire-protocol authority; the TS TUI consumer
  * `tui/src/rpc/codec.ts` is the reference for the exact shapes). Requests are
  * processed serially; a `prompt` runs its turn in the background so `interrupt` /
  * `shutdown` can arrive mid-turn (stdin is a pipe, no console Ctrl+C). Failures
@@ -277,7 +277,7 @@ function drain(consumer: EventConsumer, stdout: TextWriter, seq: SeqCounter): vo
 }
 
 /**
- * `command` request (see `docs/tui-rpc.md`): `list` lists the registry; `run` runs a
+ * `command` request (see `.agents/docs/tui-rpc.md`): `list` lists the registry; `run` runs a
  * synchronous command. A turn-type command (result carries a TurnMessage, e.g.
  * /skill with args, user commands) → `command_error: turn_not_supported` with the
  * turn message — RPC has no turn executor, the TUI runs it through its own prompt

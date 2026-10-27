@@ -11,4 +11,4 @@ Node 宿主 OAuth 实现在 `packages/coding-agent/src/core/auth/chatgpt-auth.ts
 状态、模型列表和退出命令由 `packages/coding-agent/src/cli/auth-command.ts` 接线。
 
 关键符号：`ChatGptAdapter`、`ChatGptAuth`、`CredentialStore`、`NativeOsLockProvider`；源码路径见
-以上引用。认证与会话文件位置见 [`docs/di-home.md`](../di-home.md)。
+以上引用。认证与会话文件位置见 [`.agents/docs/di-home.md`](../di-home.md)。

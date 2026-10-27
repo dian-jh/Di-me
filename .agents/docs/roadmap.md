@@ -1,17 +1,17 @@
 # 路线图
 
 当前项目以 TypeScript workspace 作为 CLI 和 agent harness 实现。核心功能入口见
-[`docs/modules/README.md`](modules/README.md)，验证事实见
-[`docs/typescript-validation.md`](typescript-validation.md)。
+[`.agents/docs/modules/README.md`](modules/README.md)，验证事实见
+[`.agents/docs/typescript-validation.md`](typescript-validation.md)。
 
 ## 近期优先顺序
 
 1. **复验 RSS 峰值。** 已增加只读工作集分类工具，并修复长测工具的恢复子进程回收/计数和
    日志统计缓冲。已观察到的 RSS 峰值仍超过冻结门槛；历史峰值缺少页分类快照，不能宣布泄漏已修复。
    下一步固定实际 release SHA，在干净工作区重新验收，并在峰值发生时保存页分类。证据、
-   工具入口和未完成门槛统一见 [`docs/typescript-validation.md`](typescript-validation.md)。
+   工具入口和未完成门槛统一见 [`.agents/docs/typescript-validation.md`](typescript-validation.md)。
 2. **安装升级失败回退已实现。** 安装器先暂存、验证再切换，失败保留或恢复旧版本；上一版保留、
-   并发锁与用户数据保护行为统一见 [`docs/di-home.md`](di-home.md)，回归测试位于
+   并发锁与用户数据保护行为统一见 [`.agents/docs/di-home.md`](di-home.md)，回归测试位于
    `packages/coding-agent/test/cli/install-runtime.test.ts`。
 3. **降低恢复会话的使用成本。** 当前 `--resume <file>` 需要用户提供 JSONL 路径。
    可先提供最近会话列表及选择恢复，复用

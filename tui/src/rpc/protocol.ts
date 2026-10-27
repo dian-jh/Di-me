@@ -1,7 +1,7 @@
 /**
  * Di RPC 线协议类型定义。
  *
- * 与 docs/tui-rpc.md 逐字段对应——该文档是双端实现的唯一权威契约，
+ * 与 .agents/docs/tui-rpc.md 逐字段对应——该文档是双端实现的唯一权威契约，
  * 任何字段增删都必须先改文档再改这里。事件载荷形状以
  * Core.AgentLoop.AgentLoopEvent 为准。
  */
@@ -33,7 +33,7 @@ export interface ModelInfo {
 
 /**
  * `{"type":"ready","version":"0.1.0",...}` —— 组合根构建完成、可服务请求后发出，仅一次。
- * 携带当前模型 / 强度 / skills / 模型目录快照（docs/tui-rpc.md §2.1），供状态栏与命令补全。
+ * 携带当前模型 / 强度 / skills / 模型目录快照（.agents/docs/tui-rpc.md §2.1），供状态栏与命令补全。
  */
 export interface ReadyMessage {
   type: "ready";

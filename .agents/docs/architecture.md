@@ -27,4 +27,4 @@ runner 事件交给 TUI 渲染；RPC 模式将事件编码为 NDJSON。
 `packages/coding-agent/src/core/agent-session.ts`（`AgentSession`）、
 `packages/agent/src/agent-loop.ts`（`runAgentLoop`）、`packages/ai/src/stream-assembler.ts`
 （流装配）及 `tui/src/interactive.ts`（`runInteractive`）。模块映射见
-[`docs/modules/README.md`](modules/README.md)。
+[`.agents/docs/modules/README.md`](modules/README.md)。

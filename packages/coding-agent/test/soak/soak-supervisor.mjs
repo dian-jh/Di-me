@@ -44,7 +44,7 @@ mkdirSync(out, { recursive: true });
 mkdirSync(diHome, { recursive: true });
 
 const manifestCopy = join(runRoot, "manifest.json");
-copyFileSync(resolve(args.manifest ?? join(repo, "docs", "soak-thresholds.json")), manifestCopy);
+copyFileSync(resolve(args.manifest ?? join(repo, ".agents", "docs", "soak-thresholds.json")), manifestCopy);
 const manifestSha256 = createHash("sha256").update(readFileSync(manifestCopy)).digest("hex");
 
 const childArgs = [runner, "run", "--di-home", diHome, "--workspace", repo, "--out", out,

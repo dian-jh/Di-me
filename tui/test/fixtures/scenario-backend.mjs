@@ -1,5 +1,5 @@
 // 场景化假后端：env SCENARIO 控制行为，供 launcher 注入接缝与客户端协议场景测试使用。
-// 只在测试中使用，不属于产品代码。线协议形状见 docs/tui-rpc.md。
+// 只在测试中使用，不属于产品代码。线协议形状见 .agents/docs/tui-rpc.md。
 //
 // SCENARIO 取值：
 //   ok               —— 最小行为（ready + prompt 事件流/result + shutdown）
