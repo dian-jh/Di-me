@@ -1,7 +1,7 @@
 # TypeScript 验证状态
 
 本页区分当前分支验证与历史固定候选的长测，不把单元测试或短测等同于长时间验收。验证命令定义在仓库根
-`package.json`；跨平台工作流位于 `.github/workflows/typescript-core.yml`。
+`package.json`；PR 校验位于 `.github/workflows/ci.yml`，main 合并校验位于 `.github/workflows/ci-master.yml`（均跑单平台 ubuntu，不再跨平台矩阵）。
 
 截至 2026-10-24，产品代码、默认 CLI、安装器及 CI 已切换到 TypeScript；受 Git 跟踪的文件中
 没有 C# 源码、项目文件或 .NET 构建链路。原 `.agents/docs/migration/typescript-core/` 迁移计划与台账

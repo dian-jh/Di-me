@@ -1,0 +1,61 @@
+# main 合并校验
+# 触发分离:main 的校验单独放一个文件,不进 ci.yml —— 这样 PR 面板只出现
+# PR 的 job,main 的 job 只在 main 推送/手动触发时出现,各自独立重跑
+
+name: CI main
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 最小权限:校验流程只需要读仓库
+permissions:
+  contents: read
+
+# 同一个 workflow + 同一个 ref(分支)只保留最新一次运行
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PRIMARY_NODE_VERSION: "24"
+
+jobs:
+  check:
+    name: node ${{ env.PRIMARY_NODE_VERSION }} / static & tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+
+      # npm ci = 按 package-lock.json 精确安装
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm run test
+
+  # 裁决 job:语义同 ci.yml 的 all-checks-passed。
+  # 这里没有 pull_request 事件,所以 if 只判 !cancelled()
+  all-checks-passed:
+    name: all checks passed
+    runs-on: ubuntu-latest
+    needs: [check]
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Fail if any needed job did not succeed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
+        run: |
+          echo "::error::Needed job results: ${{ join(needs.*.result, ', ') }}"
+          exit 1
+      - name: All checks passed
+        run: echo "All needed jobs succeeded (${{ join(needs.*.result, ', ') }})"

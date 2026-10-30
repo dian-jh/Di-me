@@ -1,0 +1,14 @@
+# 本地 git 钩子(lefthook),参照 deepseek-harness 的 lefthook.yml
+# 原则:本地只做"快检查",把最便宜的错挡在离开键盘之前;CI 才是全量门禁
+# 安装: npm install --save-dev lefthook && npx lefthook install
+# (lefthook 会把引导脚本写进 .git/hooks,文件本身不进版本库)
+
+pre-commit:
+  jobs:
+    - name: whitespace (staged)
+      run: git diff --cached --check
+
+pre-push:
+  jobs:
+    - name: typecheck
+      run: npm run typecheck
