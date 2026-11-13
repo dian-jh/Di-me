@@ -23,8 +23,13 @@ env:
 
 jobs:
   check:
-    name: node ${{ env.PRIMARY_NODE_VERSION }} / static & tests
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os }} / node 24 / static & tests
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -49,6 +54,7 @@ jobs:
   all-checks-passed:
     name: all checks passed
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: [check]
     if: ${{ !cancelled() }}
     steps:
